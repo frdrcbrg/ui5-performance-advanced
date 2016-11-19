@@ -1,0 +1,52 @@
+<mvc:View
+	controllerName="myapp.controller.Worklist"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic">
+
+	<semantic:FullscreenPage
+		id="page"
+		title="{i18n>worklistViewTitle}">
+		<semantic:content>
+			<Image src="image/stars.png" height="20px" width="100%"/>
+			<Table
+				id="table"
+				width="auto"
+				class="sapUiResponsiveMargin"
+				items="{
+					path: '/Customers',
+					sorter: {
+						path: 'CompanyName',
+						descending: false
+					}
+				}"
+				growing="true"
+				growingScrollToLoad="true">
+
+				<headerToolbar>
+					<Toolbar>
+						<Title id="tableHeader" text="{worklistView>/worklistTableTitle}"/>
+					</Toolbar>
+				</headerToolbar>
+
+				<columns>
+					<Column id="nameColumn">
+						<Text text="Customer" id="nameColumnTitle"/>
+					</Column>
+				</columns>
+
+				<items>
+					<ColumnListItem>
+						<cells>
+							<ObjectIdentifier
+								title="{CompanyName}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</semantic:content>
+
+
+	</semantic:FullscreenPage>
+
+</mvc:View>
